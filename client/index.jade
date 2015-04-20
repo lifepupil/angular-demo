@@ -20,10 +20,12 @@ html(lang='en', ng-app='alpha')
       .row(ng-controller='rainbow')
         .col-xs-12
           h1 Rainbow
+          input(type='color', ng-model='newcolor', value='#ff33cc')
+          button.btn.btn-primary(ng-click='addColor()') Add Color
           #colors
-            .color(ng-repeat='color in colors', style='background-color: {{color}};') {{color}} {{z}}
-              
-          
+            .color(ng-repeat='color in colors track by $index', style='background-color: {{color}};', ng-click='removeColor($index)') {{color}} {{z}}
+            //- .color(ng-repeat='color in colors track by $index', style='background-color: {{color}};', ng-click='removeColor()') {{color}} {{z}}
+
       .row(ng-controller='calculator')
         .col-xs-12
           h1 Calculator
