@@ -17,8 +17,36 @@ angular.module('alpha',[])
   console.info('gamma controller initialized');
   $scope.x = 5;
   $scope.y = 7;
-}]);
+}])
+.controller('rainbow',['$scope', function($scope){
+  console.info('rainbow controller initialized');
+  $scope.colors = ['blue','green','yellow'];
+  // $scope.y = 7;
+}])
+.controller('calculator',['$scope', function($scope){
+  console.info('calculator controller initialized');
+  $scope.compute = function() {
+    console.warn('we just clicked the green compute button');
+    var result;
+    var x = $scope.x;
+    var y = $scope.y;
 
+    switch($scope.op) {
+      case "+":
+        result = x + y;
+        break;
+      case '-':
+        result = x - y;
+        break;
+      case '*':
+        result = x * y;
+        break;
+      case '/':
+        result = x / y;
+    }
+    $scope.result = result;
+  }
+}]);
 
 $(document).ready(init);
 

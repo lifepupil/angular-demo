@@ -17,6 +17,21 @@ html(lang='en', ng-app='alpha')
     h1 Angular Demo
     
     .container-fluid
+      .row(ng-controller='rainbow')
+        .col-xs-12
+          h1 Rainbow
+          #colors
+            .color(ng-repeat='color in colors', style='background-color: {{color}};') {{color}} {{z}}
+              
+          
+      .row(ng-controller='calculator')
+        .col-xs-12
+          h1 Calculator
+          input(type='number', ng-model='x')
+          input(type='text', ng-model='op')
+          input(type='number', ng-model='y')
+          button.btn.btn-success.btn-sm(ng-click='compute()') = 
+          span {{result}}
       .row(ng-controller='beta')
         .col-xs-12
           h1 BETA
